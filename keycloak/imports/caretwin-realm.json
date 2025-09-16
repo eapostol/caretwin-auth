@@ -1,0 +1,253 @@
+{
+  "realm": "caretwin",
+  "enabled": true,
+  "displayName": "CareTwin Authentication",
+  "displayNameHtml": "<div class='kc-logo-text'><span>CareTwin</span></div>",
+  "loginTheme": "caretwin",
+  "accountTheme": "caretwin",
+  "adminTheme": "keycloak",
+  "emailTheme": "keycloak",
+  "accessTokenLifespan": 1800,
+  "accessTokenLifespanForImplicitFlow": 900,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "registrationEmailAsUsername": true,
+  "rememberMe": true,
+  "verifyEmail": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "permanentLockout": false,
+  "maxFailureWaitSeconds": 900,
+  "minimumQuickLoginWaitSeconds": 60,
+  "waitIncrementSeconds": 60,
+  "quickLoginCheckMilliSeconds": 1000,
+  "maxDeltaTimeSeconds": 43200,
+  "failureFactor": 30,
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "Basic user role",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "caretwin"
+      },
+      {
+        "name": "admin",
+        "description": "Administrator role",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "caretwin"
+      },
+      {
+        "name": "api_user",
+        "description": "API access role",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "caretwin"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "lidar-ios-app",
+      "name": "LiDAR iOS Application",
+      "description": "Mobile application for LiDAR scanning",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "lidar-ios-client-secret-change-in-production",
+      "redirectUris": [
+        "com.caretwin.lidar://oauth/callback",
+        "http://localhost:3000/auth/callback"
+      ],
+      "webOrigins": [
+        "+"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": false,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "access.token.lifespan": "1800",
+        "client.secret.creation.time": "1234567890",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "oidc.ciba.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [
+        "web-origins",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "clientId": "lidar-web-viewer",
+      "name": "LiDAR Web Application Viewer",
+      "description": "Web application for viewing LiDAR models",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "web-viewer-client-secret-change-in-production",
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "https://your-web-app-domain.com/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "https://your-web-app-domain.com"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "publicClient": false,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "access.token.lifespan": "1800",
+        "client.secret.creation.time": "1234567890",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "oidc.ciba.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [
+        "web-origins",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "clientId": "3dgs-api-service",
+      "name": "3DGS API Service",
+      "description": "Python API service for 3D Gaussian Splatting",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "api-service-client-secret-change-in-production",
+      "redirectUris": [
+        "http://localhost:8000/*",
+        "https://your-api-domain.com/*"
+      ],
+      "webOrigins": [
+        "http://localhost:8000",
+        "https://your-api-domain.com"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "access.token.lifespan": "3600",
+        "client.secret.creation.time": "1234567890",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "oidc.ciba.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "protocolMappers": [
+        {
+          "name": "api-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "3dgs-api-service",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ],
+      "defaultClientScopes": [
+        "web-origins",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "totp": false,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin@caretwin.ai",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": true
+        }
+      ],
+      "realmRoles": [
+        "admin",
+        "user"
+      ],
+      "groups": []
+    }
+  ],
+  "groups": [
+    {
+      "name": "administrators",
+      "path": "/administrators",
+      "attributes": {},
+      "realmRoles": [
+        "admin"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "name": "users",
+      "path": "/users",
+      "attributes": {},
+      "realmRoles": [
+        "user"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+/* CareTwin Custom Theme */
+:root {
+  --caretwin-primary: #2563eb;
+  --caretwin-secondary: #64748b;
+  --caretwin-accent: #0ea5e9;
+  --caretwin-success: #10b981;
+  --caretwin-warning: #f59e0b;
+  --caretwin-error: #ef4444;
+  --caretwin-background: #f8fafc;
+  --caretwin-surface: #ffffff;
+  --caretwin-text: #1e293b;
+  --caretwin-text-muted: #64748b;
+}
+
+.login-pf body {
+  background: linear-gradient(135deg, var(--caretwin-background) 0%, #e2e8f0 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-pf .container {
+  padding-top: 2rem;
+}
+
+.login-pf-page .login-pf-brand {
+  margin-bottom: 2rem;
+}
+
+.login-pf-page .login-pf-brand img {
+  max-height: 60px;
+  width: auto;
+}
+
+.login-pf-page .card-pf {
+  background: var(--caretwin-surface);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-pf-page .card-pf h1 {
+  color: var(--caretwin-text);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.login-pf-page .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.login-pf-page .form-control {
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.login-pf-page .form-control:focus {
+  border-color: var(--caretwin-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.login-pf-page .btn-primary {
+  background-color: var(--caretwin-primary);
+  border-color: var(--caretwin-primary);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.login-pf-page .btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.login-pf-page .btn-primary:active {
+  transform: translateY(0);
+}
+
+.login-pf-page .alert {
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.login-pf-page .alert-error {
+  background-color: #fef2f2;
+  border-color: var(--caretwin-error);
+  color: #991b1b;
+}
+
+.login-pf-page .alert-success {
+  background-color: #f0fdf4;
+  border-color: var(--caretwin-success);
+  color: #166534;
+}
+
+.login-pf-page .alert-warning {
+  background-color: #fefbf2;
+  border-color: var(--caretwin-warning);
+  color: #92400e;
+}
+
+.login-pf-page .form-actions {
+  margin-top: 2rem;
+}
+
+.login-pf-page .login-pf-signup {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.login-pf-page .login-pf-signup a {
+  color: var(--caretwin-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-pf-page .login-pf-signup a:hover {
+  text-decoration: underline;
+}
+
+/* Logo customization */
+.kc-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--caretwin-primary);
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-pf-page .card-pf {
+    margin: 1rem;
+    padding: 2rem;
+  }
+}
